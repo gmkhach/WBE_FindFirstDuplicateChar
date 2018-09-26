@@ -21,11 +21,11 @@ namespace WBE_FindFirstDuplicateChar
                 {
                     Console.Write("Enter a string of characters\n\n>>> ");
                     string input = Console.ReadLine();
-                    Console.WriteLine(FindFirstDuplicatedChar(input));
+                    Console.WriteLine("\nFirst duplicated char: " + FindFirstDuplicatedChar(input));
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("\n" + ex.Message);
                 }
                 Console.Write("\nPress Enter to try another string...");
                 Console.ReadLine();
@@ -43,14 +43,23 @@ namespace WBE_FindFirstDuplicateChar
                 {
                     if (array[i] == array[j])
                     {
+                        // stores the duplicates index if 1) it's the first duplicate encounterred 2) if it appears in the string before the previously saved duplicate does.
                         if (duplicateIndex == -1 || j < duplicateIndex)
                         {
+                            // stores the duplicated char's index
                             duplicateIndex = j;
                         }
                     }
                 }
             }
-            return array[duplicateIndex];
+            if (duplicateIndex == -1)
+            {
+                throw new Exception("No duplicate characters were found");
+            }
+            else
+            {
+                return array[duplicateIndex];
+            }
         }
     }
 }
