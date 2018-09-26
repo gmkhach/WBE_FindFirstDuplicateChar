@@ -43,7 +43,7 @@ namespace WBE_FindFirstDuplicateChar
                 {
                     if (array[i] == array[j])
                     {
-                        // stores the duplicates index if 1) it's the first duplicate encounterred 2) if it appears in the string before the previously saved duplicate does.
+                        // stores the duplicate's index if 1) it's the first duplicate encounterred 2) if it appears in the string before the previously saved duplicate does.
                         if (duplicateIndex == -1 || j < duplicateIndex)
                         {
                             // stores the duplicated char's index
@@ -52,6 +52,7 @@ namespace WBE_FindFirstDuplicateChar
                     }
                 }
             }
+            // if duplicateIndex's value hasn't changed then no duplicates were encountered.
             if (duplicateIndex == -1)
             {
                 throw new Exception("No duplicate characters were found");
