@@ -36,12 +36,11 @@ namespace WBE_FindFirstDuplicateChar
         static char FindFirstDuplicatedChar(string input)
         {
             int duplicateIndex = -1;
-            char[] array = input.ToCharArray();
-            for (int i = 0; i < array.Length - 1; i++)
+            for (int i = 0; i < input.Length - 1; i++)
             {
-                for (int j = i + 1; j < array.Length; j++)
+                for (int j = i + 1; j < input.Length; j++)
                 {
-                    if (array[i] == array[j])
+                    if (input[i] == input[j])
                     {
                         // stores the duplicate's index if 1) it's the first duplicate encounterred 2) if it appears in the string before the previously saved duplicate does.
                         if (duplicateIndex == -1 || j < duplicateIndex)
@@ -59,7 +58,7 @@ namespace WBE_FindFirstDuplicateChar
             }
             else
             {
-                return array[duplicateIndex];
+                return input[duplicateIndex];
             }
         }
     }
